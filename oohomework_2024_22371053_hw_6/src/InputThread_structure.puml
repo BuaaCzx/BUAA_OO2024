@@ -1,0 +1,209 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "InputThread",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1379433044 { 
+   	label=InputThread
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   InputThread1379433044[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InputThread</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   elevatorRequestQueues: ArrayList&lt;ElevatorRequestQueue&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   waitQueue: ScheduleRequestQueue [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ run()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_156899570 { 
+   	label=MyPersonRequest
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyPersonRequest156899570[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyPersonRequest</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   beginning: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   destination: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   elevatorId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   personId: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1706826768 { 
+   	label=ElevatorRequestQueue
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   ElevatorRequestQueue1706826768[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ElevatorRequestQueue</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   isEnd: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   requests: ArrayList&lt;MyRequest&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addRequest(request: MyRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getRequestsAtFloor(floor: int): ArrayList&lt;MyPersonRequest&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeRequest(request: MyRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ reset(elevator: Elevator, resetRequest: MyResetRequest)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_749555156 { 
+   	label=MyResetRequest
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyResetRequest749555156[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyResetRequest</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   capacity: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   elevatorId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   speed: long [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_954099737 { 
+   	label=ScheduleRequestQueue
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   ScheduleRequestQueue954099737[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ScheduleRequestQueue</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   isEnd: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   requests: ArrayList&lt;MyRequest&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addRequest(request: MyRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeRequest(request: MyRequest)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+ElevatorRequestQueue1706826768 -> ScheduleRequestQueue954099737[arrowhead=none];
+InputThread1379433044 -> ElevatorRequestQueue1706826768[label="elevatorRequestQueues
+[0..*]"];
+InputThread1379433044 -> ScheduleRequestQueue954099737[label="waitQueue
+[0..1]"];
+ScheduleRequestQueue954099737 -> MyPersonRequest156899570[arrowhead=none];
+ScheduleRequestQueue954099737 -> MyResetRequest749555156[arrowhead=none];
+    
+}
+@enduml

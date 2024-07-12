@@ -1,0 +1,10 @@
+1-AND-24-TO-Beijing
+1-AND-25-TO-Beijing
+1-AND-400-TO-Domestic
+1-AND-260-TO-Domestic
+1-AND-36-TO-Domestic
+1-AND-400-TO-Foreign
+1-AND-1000-TO-Foreign
+1-AND-1000-TO-Foreign
+1-AND-1000-TO-Foreign
+1-AND-260-TO-Domestic

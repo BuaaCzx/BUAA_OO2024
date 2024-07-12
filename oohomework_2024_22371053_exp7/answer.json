@@ -1,0 +1,19 @@
+{
+  "1": [
+    "-ask2checkOut(guestName:String, roomId:int) : void",
+    "+checkout(roomId:int) : void",
+    "-workerName:String",
+    "Dispatcher",
+    "finishClean",
+    "isCleanOperation()"
+  ],
+  "2": [
+    "DIS_REC_CHECKIN_FAILED",
+    "replyCheckOut(request);",
+    "arrangeClean4CheckOut(request);",
+    "arrangeCleanOnly(Request request)",
+    "RoomState.OCCUPIED",
+    "RequestTag.DIS_CLE_CLEAN_CHECKOUT.equals(request.getRequestTag())"
+  ],
+  "3": "高内聚，说明一个类的内部内部各个元素之间关联程度很高，他们共同完成一个模块的功能。高内聚说明模块的单一性很强，独立完成某种功能。高内聚的结构可以使得整个代码架构更为清晰明了，并且易于拓展和维护。低耦合指类和类之间的关联程度弱，就像uml顺序图中显示的那样，低耦合的程序，类和类之间往往只通过寥寥几个方法的调用连接在一起，且这几个方法的实现也比较简单。这个性质和高内聚是相辅相成的，一个模块的改变不会对其他模块造成太大影响，利于维护和拓展。例如这次实验2的代码，每个类分别表示一种员工，这些类具有高内聚的特点，类的内部关联程度很高，共同构成了员工的所有功能属性；每个类之间仅通过ask, arrange, apply, finish等方法来实现交互，既直观有效的表示了类与类之间信息的传递，又保证了低耦合性。同时我们也可以发现，高内聚低耦合的代码画出来的顺序图是非常清爽与直观的，如果不满足这个特点，uml顺序图就会错综复杂，让人难以理解与维护。"
+}

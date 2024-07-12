@@ -1,0 +1,855 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "MainClass",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1087303996 { 
+   	label=MyPersonIdNotFoundException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyPersonIdNotFoundException1087303996[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyPersonIdNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1271934411 { 
+   	label=MyEqualRelationException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyEqualRelationException1271934411[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyEqualRelationException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id1: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id2: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1311191195 { 
+   	label=MyMessage
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyMessage1311191195[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyMessage</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   messageId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagePerson1: Person [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagePerson2: Person [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageSocialValue: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageTag: Tag [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1416468275 { 
+   	label=MyEmojiMessage
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyEmojiMessage1416468275[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyEmojiMessage</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   emojiNumber: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagePerson1: Person [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagePerson2: Person [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageTag: Tag [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1447492101 { 
+   	label=oocourse
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1826966053 { 
+   	label=spec3
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   AcquaintanceNotFoundException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AcquaintanceNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EmojiIdNotFoundException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EmojiIdNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EqualEmojiIdException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EqualEmojiIdException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EqualMessageIdException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EqualMessageIdException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EqualPersonIdException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EqualPersonIdException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EqualRelationException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EqualRelationException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EqualTagIdException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EqualTagIdException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+MessageIdNotFoundException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MessageIdNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PathNotFoundException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PathNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PersonIdNotFoundException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PersonIdNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RelationNotFoundException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RelationNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Runner1679212533[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Runner</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   commands: String[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   emojiConstructor0: Constructor&lt;? extends EmojiMessage&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   emojiConstructor1: Constructor&lt;? extends EmojiMessage&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageConstructor0: Constructor&lt;? extends Message&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageConstructor1: Constructor&lt;? extends Message&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   network: Network [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   networkConstructor: Constructor&lt;? extends Network&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   noticeConstructor0: Constructor&lt;? extends NoticeMessage&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   noticeConstructor1: Constructor&lt;? extends NoticeMessage&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   personConstructor: Constructor&lt;? extends Person&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   redEnvelopeConstructor0: Constructor&lt;? extends RedEnvelopeMessage&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   redEnvelopeConstructor1: Constructor&lt;? extends RedEnvelopeMessage&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scanner: Scanner [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tagConstructor: Constructor&lt;? extends Tag&gt; [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- addEmojiMessage()</TD></TR>
+<TR><TD ALIGN="LEFT" >- addMessage(message: Message): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- addMessage()</TD></TR>
+<TR><TD ALIGN="LEFT" >- addNoticeMessage()</TD></TR>
+<TR><TD ALIGN="LEFT" >- addPerson()</TD></TR>
+<TR><TD ALIGN="LEFT" >- addRedEnvelopeMessage()</TD></TR>
+<TR><TD ALIGN="LEFT" >- addRelation()</TD></TR>
+<TR><TD ALIGN="LEFT" >- addTag()</TD></TR>
+<TR><TD ALIGN="LEFT" >- addToTag()</TD></TR>
+<TR><TD ALIGN="LEFT" >- clearNotices()</TD></TR>
+<TR><TD ALIGN="LEFT" >- delFromTag()</TD></TR>
+<TR><TD ALIGN="LEFT" >- delTag()</TD></TR>
+<TR><TD ALIGN="LEFT" >- deleteColdEmoji()</TD></TR>
+<TR><TD ALIGN="LEFT" >- loadNetwork(sc: Scanner)</TD></TR>
+<TR><TD ALIGN="LEFT" >- modifyRelation()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryBestAcquaintance()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryBlockSum()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryCircle()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryCoupleSum()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryMoney()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryPopularity()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryReceivedMessages()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryShortestPath()</TD></TR>
+<TR><TD ALIGN="LEFT" >- querySocialValue()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryTagAgeVar()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryTagValueSum()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryTripleSum()</TD></TR>
+<TR><TD ALIGN="LEFT" >- queryValue()</TD></TR>
+<TR><TD ALIGN="LEFT" >- resolve(message: Message)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ run()</TD></TR>
+<TR><TD ALIGN="LEFT" >- sendMessage()</TD></TR>
+<TR><TD ALIGN="LEFT" >- storeEmojiId()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+TagIdNotFoundException206591808[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TagIdNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+subgraph cluster_1467949937 { 
+   	label=MyPathNotFoundException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyPathNotFoundException1467949937[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyPathNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id1: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id2: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1522060746 { 
+   	label=MyEqualEmojiIdException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyEqualEmojiIdException1522060746[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyEqualEmojiIdException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1576844246 { 
+   	label=MyMessageIdNotFoundException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyMessageIdNotFoundException1576844246[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyMessageIdNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1660391331 { 
+   	label=MyNoticeMessage
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyNoticeMessage1660391331[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyNoticeMessage</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   messageId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagePerson1: Person [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagePerson2: Person [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageTag: Tag [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   noticeString: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1726840607 { 
+   	label=MainClass
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MainClass1726840607[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MainClass</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1782092727 { 
+   	label=MyTagIdNotFoundException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyTagIdNotFoundException1782092727[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyTagIdNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1967285717 { 
+   	label=MyEqualMessageIdException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyEqualMessageIdException1967285717[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyEqualMessageIdException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1976621655 { 
+   	label=MyEdge
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyEdge1976621655[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyEdge</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   person: Person [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   value: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1983229813 { 
+   	label=MyEmojiIdNotFoundException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyEmojiIdNotFoundException1983229813[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyEmojiIdNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2095215934 { 
+   	label=MyNetwork
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyNetwork2095215934[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyNetwork</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   blockSum: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   emojiHeatList: int[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   emojiHeatMap: HashMap&lt;Integer, Integer&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idMessageMap: HashMap&lt;Integer, Message&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idPersonMap: HashMap&lt;Integer, Person&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   reCalc: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tags: HashSet&lt;Tag&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   triples: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addMessage(message: Message)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addPerson(person: Person)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addPersonToTag(personId1: int, personId2: int, tagId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addRelation(id1: int, id2: int, value: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addTag(personId: int, tag: Tag)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clearNotices(personId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containsEmojiId(id: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containsMessage(id: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containsPerson(id: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ delPersonFromTag(personId1: int, personId2: int, tagId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ delTag(personId: int, tagId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deleteColdEmoji(limit: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMessage(id: int): Message</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getPerson(id: int): Person</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isCircle(id1: int, id2: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ modifyRelation(id1: int, id2: int, value: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryBestAcquaintance(id: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryBlockSum(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryCoupleSum(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryMoney(id: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryPopularity(id: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryReceivedMessages(id: int): List&lt;Message&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryShortestPath(id1: int, id2: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ querySocialValue(id: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryTagAgeVar(personId: int, tagId: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryTagValueSum(personId: int, tagId: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryTripleSum(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryValue(id1: int, id2: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ sendMessage(id: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeEmojiId(id: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2100173416 { 
+   	label=MyRelationNotFoundException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyRelationNotFoundException2100173416[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyRelationNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id1: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id2: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2142158089 { 
+   	label=MyEqualPersonIdException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyEqualPersonIdException2142158089[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyEqualPersonIdException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_225404529 { 
+   	label=MyAcquaintanceNotFoundException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyAcquaintanceNotFoundException225404529[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyAcquaintanceNotFoundException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_36179870 { 
+   	label=MyEqualTagIdException
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyEqualTagIdException36179870[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyEqualTagIdException</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ print()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_74799662 { 
+   	label=MyTag
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyTag74799662[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyTag</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   agePowSum: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   ageSum: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   persons: HashMap&lt;Integer, Person&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   valueSum: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addPerson(person: Person)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addRelation(person1: Person, person2: Person, value: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ delPerson(person: Person)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ hasPerson(person: Person): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_841676735 { 
+   	label=MyPerson
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyPerson841676735[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyPerson</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   acquaintanceValueMap: HashMap&lt;Person, Integer&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   age: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   edgesPriorityQueue: PriorityQueue&lt;MyEdge&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagesList: LinkedList&lt;Message&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagesMap: HashMap&lt;Integer, Message&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   money: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   socialValue: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tags: HashMap&lt;Integer, Tag&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addAcquaintance(person: Person, value: int, persons: Collection&lt;Person&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addMessage(message: Message)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addMoney(num: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addSocialValue(num: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addTag(tag: Tag)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clearNotices()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containsTag(id: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ delTag(id: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deleteAcquaintance(person: Person, persons: Collection&lt;Person&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getBlock(vis: HashSet&lt;Person&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getTag(id: int): Tag</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isLinked(person: Person): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryBestAcquaintance(): Integer</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryShortestPath(id: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ queryValue(person: Person): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ strictEquals(person: Person): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updatePriorityQueue()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_957953074 { 
+   	label=MyRedEnvelopeMessage
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyRedEnvelopeMessage957953074[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyRedEnvelopeMessage</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   luckyMoney: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagePerson1: Person [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messagePerson2: Person [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageTag: Tag [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+AcquaintanceNotFoundException206591808 -> MyAcquaintanceNotFoundException225404529[arrowhead=none, arrowtail=empty, dir=both];
+EmojiIdNotFoundException206591808 -> MyEmojiIdNotFoundException1983229813[arrowhead=none, arrowtail=empty, dir=both];
+EqualEmojiIdException206591808 -> MyEqualEmojiIdException1522060746[arrowhead=none, arrowtail=empty, dir=both];
+EqualMessageIdException206591808 -> MyEqualMessageIdException1967285717[arrowhead=none, arrowtail=empty, dir=both];
+EqualPersonIdException206591808 -> MyEqualPersonIdException2142158089[arrowhead=none, arrowtail=empty, dir=both];
+EqualRelationException206591808 -> MyEqualRelationException1271934411[arrowhead=none, arrowtail=empty, dir=both];
+EqualTagIdException206591808 -> MyEqualTagIdException36179870[arrowhead=none, arrowtail=empty, dir=both];
+MainClass1726840607 -> Runner1679212533[label="main() -> run()"];
+MessageIdNotFoundException206591808 -> MyMessageIdNotFoundException1576844246[arrowhead=none, arrowtail=empty, dir=both];
+MyNoticeMessage1660391331 -> MyTag74799662[arrowhead=none];
+MyPerson841676735 -> MyEdge1976621655[label="edgesPriorityQueue
+[0..*]"];
+MyPerson841676735 -> MyEmojiMessage1416468275[arrowhead=none];
+MyPerson841676735 -> MyMessage1311191195[arrowhead=none];
+MyPerson841676735 -> MyRedEnvelopeMessage957953074[arrowhead=none];
+MyTag74799662 -> MyPerson841676735[arrowhead=none];
+PathNotFoundException206591808 -> MyPathNotFoundException1467949937[arrowhead=none, arrowtail=empty, dir=both];
+PersonIdNotFoundException206591808 -> MyPersonIdNotFoundException1087303996[arrowhead=none, arrowtail=empty, dir=both];
+RelationNotFoundException206591808 -> MyRelationNotFoundException2100173416[arrowhead=none, arrowtail=empty, dir=both];
+Runner1679212533 -> AcquaintanceNotFoundException206591808[label="queryBestAcquaintance() -> print()"];
+Runner1679212533 -> EqualEmojiIdException206591808[label="storeEmojiId() -> print()"];
+Runner1679212533 -> EqualMessageIdException206591808[label="addMessage() -> print()"];
+Runner1679212533 -> EqualRelationException206591808[label="addRelation() -> print()"];
+Runner1679212533 -> EqualTagIdException206591808[label="addTag() -> print()"];
+Runner1679212533 -> MessageIdNotFoundException206591808[label="sendMessage() -> print()"];
+Runner1679212533 -> MyNetwork2095215934[arrowhead=none];
+Runner1679212533 -> MyNoticeMessage1660391331[arrowhead=none];
+Runner1679212533 -> PathNotFoundException206591808[label="queryShortestPath() -> print()"];
+TagIdNotFoundException206591808 -> MyTagIdNotFoundException1782092727[arrowhead=none, arrowtail=empty, dir=both];
+    
+}
+@enduml

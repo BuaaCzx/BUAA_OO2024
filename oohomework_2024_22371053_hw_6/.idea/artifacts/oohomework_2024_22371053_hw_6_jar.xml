@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="oohomework_2024_22371053_hw_6:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/oohomework_2024_22371053_hw_6_jar</output-path>
+    <root id="archive" name="oohomework_2024_22371053_hw_6.jar">
+      <element id="module-output" name="oohomework_2024_22371053_hw_6" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/面向对象第二单元第二次作业官方包/elevator2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

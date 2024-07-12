@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="oohomework_2024_22371053_exp_3:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/oohomework_2024_22371053_exp_3_jar</output-path>
+    <root id="archive" name="oohomework_2024_22371053_exp_3.jar">
+      <element id="module-output" name="oohomework_2024_22371053_exp_3" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/exp3_code/jars/input_exp3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

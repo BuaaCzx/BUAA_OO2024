@@ -1,0 +1,373 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Elevator",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_156899570 { 
+   	label=MyPersonRequest
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyPersonRequest156899570[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyPersonRequest</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   beginning: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   destination: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   elevatorId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   personId: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getDoubleCarId(transferFloor: int): int</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1706826768 { 
+   	label=ElevatorRequestQueue
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   ElevatorRequestQueue1706826768[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ElevatorRequestQueue</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   isEnd: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   requests: ArrayList&lt;MyRequest&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addRequest(request: MyRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ doubleCarReset(elevator: Elevator, resetRequest: MyDoubleCarResetRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getOneRequest(currentCarId: int, transferFloor: int): MyPersonRequest</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getRequestsAtFloor(floor: int): ArrayList&lt;MyPersonRequest&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ normalReset(elevator: Elevator, resetRequest: MyNormalResetRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeRequest(request: MyRequest)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1784215991 { 
+   	label=MyDoubleCarResetRequest
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyDoubleCarResetRequest1784215991[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyDoubleCarResetRequest</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   capacity: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   elevatorId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   speed: long [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   transferFloor: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1852442515 { 
+   	label=Strategy
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Strategy1852442515[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Strategy</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   elevator: Elevator [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ changeMainRequest()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMaxDirection(currentFloor: int): Direction</TD></TR>
+<TR><TD ALIGN="LEFT" >+ tryAddPassengers()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ tryRemovePassengers()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_633276745 { 
+   	label=Schedule
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Schedule633276745[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Schedule</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   elevatorWaitingQueues: ArrayList&lt;ElevatorRequestQueue&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   elevators: ArrayList&lt;Elevator&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   random: BalancedRandom [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   waitQueue: ScheduleRequestQueue [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ run()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_64503054 { 
+   	label=Elevator
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Elevator64503054[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Elevator</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   currentCar: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   currentCarFloor: Integer[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   currentFloor: Integer [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   direction: Direction [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   doorTime: long [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isDoubleCar: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mainRequest: MyPersonRequest [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mainRequestStatus: RequestStatus [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   maxFloor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   maxPassengers: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   minFloor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   moveTimePerFloor: long [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   processingRequests: ArrayList&lt;MyPersonRequest&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   resetTime: long [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   schedule: Schedule [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   status: Status [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   strategy: Strategy [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   transferFloor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   waitingQueue: ElevatorRequestQueue [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addPassenger(request: MyPersonRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ doorClose()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ doorOpen()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ doubleCarRun(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getCharCarId(id: int): char</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getCurrentCarFloor(id: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ handleDoubleCarResetRequest(resetRequest: MyDoubleCarResetRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ handleNormalResetRequest(resetRequest: MyNormalResetRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ move()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ move(d: Direction)</TD></TR>
+<TR><TD ALIGN="LEFT" >- moveDown()</TD></TR>
+<TR><TD ALIGN="LEFT" >- moveUp()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ normalRun(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeRequest(request: MyPersonRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ run()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ tryTransfer()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_749555156 { 
+   	label=MyResetRequest
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyResetRequest749555156[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyResetRequest</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_793772109 { 
+   	label=MyNormalResetRequest
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyNormalResetRequest793772109[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyNormalResetRequest</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   capacity: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   elevatorId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   speed: long [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_911203317 { 
+   	label=BalancedRandom
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   BalancedRandom911203317[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BalancedRandom</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   numbers: List&lt;Integer&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   random: Random [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_954099737 { 
+   	label=ScheduleRequestQueue
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   ScheduleRequestQueue954099737[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ScheduleRequestQueue</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   isEnd: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   requests: ArrayList&lt;MyRequest&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addRequest(request: MyRequest)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeRequest(request: MyRequest)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Elevator64503054 -> ElevatorRequestQueue1706826768[label="waitingQueue
+[0..1]"];
+Elevator64503054 -> MyPersonRequest156899570[label="mainRequest
+[0..1]"];
+Elevator64503054 -> MyPersonRequest156899570[label="processingRequests
+[0..*]"];
+Elevator64503054 -> Schedule633276745[label="schedule
+[0..1]"];
+Elevator64503054 -> Strategy1852442515[label="strategy
+[0..1]"];
+ElevatorRequestQueue1706826768 -> MyPersonRequest156899570[label="getOneRequest() -> getDoubleCarId()"];
+ElevatorRequestQueue1706826768 -> ScheduleRequestQueue954099737[arrowhead=none];
+MyPersonRequest156899570 -> MyResetRequest749555156[arrowhead=none];
+MyResetRequest749555156 -> MyDoubleCarResetRequest1784215991[arrowhead=none, arrowtail=empty, dir=both];
+MyResetRequest749555156 -> MyNormalResetRequest793772109[arrowhead=none, arrowtail=empty, dir=both];
+Schedule633276745 -> BalancedRandom911203317[label="random
+[0..1]"];
+Schedule633276745 -> Elevator64503054[label="elevators
+[0..*]"];
+Schedule633276745 -> ElevatorRequestQueue1706826768[label="elevatorWaitingQueues
+[0..*]"];
+Schedule633276745 -> MyPersonRequest156899570[label="run() -> getDoubleCarId()"];
+Schedule633276745 -> ScheduleRequestQueue954099737[label="waitQueue
+[0..1]"];
+Strategy1852442515 -> Elevator64503054[label="elevator
+[0..1]"];
+Strategy1852442515 -> MyPersonRequest156899570[label="tryAddPassengers() -> getDoubleCarId()"];
+    
+}
+@enduml

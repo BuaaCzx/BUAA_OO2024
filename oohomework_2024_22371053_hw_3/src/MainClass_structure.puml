@@ -1,0 +1,331 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "MainClass",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1071888139 { 
+   	label=VariableFactor
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   VariableFactor1071888139[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)VariableFactor</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   coefficient: BigInteger [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   exponentExpr: Expression [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   power: BigInteger [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ canMerge(other: VariableFactor): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clone(): VariableFactor</TD></TR>
+<TR><TD ALIGN="LEFT" >+ differentiate(): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >+ multiply(factor: VariableFactor): VariableFactor</TD></TR>
+<TR><TD ALIGN="LEFT" >+ reverseSign(): VariableFactor</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1357106269 { 
+   	label=InputSolver
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   InputSolver1357106269[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InputSolver</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   functions: ArrayList&lt;Function&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addPlus(input: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getFunction(c: char): Function</TD></TR>
+<TR><TD ALIGN="LEFT" >- initFunction(inputstr: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- inputFunction(scanner: Scanner): ArrayList&lt;Function&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isFunction(c: char): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeFunction(input: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeSpacesAndTabs(input: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ replaceConsecutiveSigns(input: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ simplify(inputstr: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ solveFunction(scanner: Scanner)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1445582840 { 
+   	label=Function
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Function1445582840[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Function</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   expression: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   func: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   functionName: char [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- changeArgName(params: ArrayList&lt;String&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >- exchangeExpr(input: String, start: int, end: int, args: ArrayList&lt;String&gt;): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expandFunction(inputSolver: InputSolver, inputstr: String, pos: int): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1726840607 { 
+   	label=MainClass
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MainClass1726840607[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MainClass</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1911543745 { 
+   	label=Parser
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Parser1911543745[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Parser</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   lexer: Lexer [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- parseConstantFactor(): VariableFactor</TD></TR>
+<TR><TD ALIGN="LEFT" >- parseDifferentialFactor(): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >- parseExponentFactor(): VariableFactor</TD></TR>
+<TR><TD ALIGN="LEFT" >+ parseExpr(): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >- parseExpressionFactor(): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >+ parseFactor(): Factor</TD></TR>
+<TR><TD ALIGN="LEFT" >- parsePower(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ parseTerm(sign: int): Term</TD></TR>
+<TR><TD ALIGN="LEFT" >- parseVariableFactor(): VariableFactor</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_198012600 { 
+   	label=Expression
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Expression198012600[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Expression</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   factors: ArrayList&lt;VariableFactor&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addExpression(other: Expression): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addFactor(factor: Factor)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clone(): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >+ differentiate(): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >+ merge()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ multiply(other: Factor): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >+ multiply(other: Expression): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >+ multiply(factor: VariableFactor): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >+ pow(n: int): Expression</TD></TR>
+<TR><TD ALIGN="LEFT" >- removeZeros()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ reverseSign()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2603148 { 
+   	label=Term
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Term2603148[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Term</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   factors: ArrayList&lt;Factor&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   sign: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addFactor(f: Factor)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_73315052 { 
+   	label=Lexer
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Lexer73315052[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Lexer</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   curToken: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   hasMore: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   input: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pos: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ nextToken()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ peek(): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_827929482 { 
+   	label=BracketMatcher
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   BracketMatcher827929482[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BracketMatcher</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   stack: Stack&lt;Character&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ pushLeftBracket()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ pushRightBracket()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Expression198012600 -> VariableFactor1071888139[label="factors
+[0..*]"];
+InputSolver1357106269 -> Function1445582840[label="functions
+[0..*]"];
+MainClass1726840607 -> InputSolver1357106269[label="main() -> simplify()"];
+MainClass1726840607 -> Parser1911543745[label="main() -> parseExpr()"];
+Parser1911543745 -> Lexer73315052[label="lexer
+[0..1]"];
+Term2603148 -> Expression198012600[arrowhead=none];
+Term2603148 -> VariableFactor1071888139[arrowhead=none];
+VariableFactor1071888139 -> Expression198012600[label="exponentExpr
+[0..1]"];
+    
+}
+@enduml

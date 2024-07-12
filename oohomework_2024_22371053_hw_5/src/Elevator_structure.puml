@@ -1,0 +1,214 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Elevator",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1454689250 { 
+   	label=RequestQueue
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   RequestQueue1454689250[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RequestQueue</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   isEnd: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   requests: ArrayList&lt;Request&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addRequest(request: Request)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMainRequest(currentFloor: int): Request</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMainRequest2(currentFloor: int): Request</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getRequestsAtFloor(floor: int): ArrayList&lt;Request&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeRequest(request: Request)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1534621073 { 
+   	label=Request
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Request1534621073[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Request</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   beginning: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   destination: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   elevatorId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   personId: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1852442515 { 
+   	label=Strategy
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Strategy1852442515[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Strategy</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   elevator: Elevator [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ changeMainRequest()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMaxDirection(currentFloor: int): Direction</TD></TR>
+<TR><TD ALIGN="LEFT" >+ tryAddPassengers()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ tryRemovePassengers()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_64503054 { 
+   	label=Elevator
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Elevator64503054[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Elevator</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   currentFloor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   direction: Direction [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   doorTime: Long [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mainRequest: Request [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mainRequestStatus: RequestStatus [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   maxFloor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   maxPassengers: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   minFloor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   moveTimePerFloor: Long [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   processingRequests: ArrayList&lt;Request&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   status: Status [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   strategy: Strategy [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   waitingQueue: RequestQueue [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addPassenger(request: Request)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ doorClose()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ doorOpen()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ move()</TD></TR>
+<TR><TD ALIGN="LEFT" >- moveDown()</TD></TR>
+<TR><TD ALIGN="LEFT" >- moveUp()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeRequest(request: Request)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ run()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Elevator64503054 -> Request1534621073[label="mainRequest
+[0..1]"];
+Elevator64503054 -> Request1534621073[label="processingRequests
+[0..*]"];
+Elevator64503054 -> RequestQueue1454689250[label="waitingQueue
+[0..1]"];
+Elevator64503054 -> Strategy1852442515[label="strategy
+[0..1]"];
+RequestQueue1454689250 -> Request1534621073[label="requests
+[0..*]"];
+Strategy1852442515 -> Elevator64503054[label="elevator
+[0..1]"];
+    
+}
+@enduml

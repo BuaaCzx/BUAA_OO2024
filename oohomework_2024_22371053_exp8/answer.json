@@ -1,0 +1,9 @@
+{
+    "1": ["Bottle", "usedBy", "泛化"],
+    "2": ["Adventurer", "getKnapsack", "满足 aids.contains(aid) 时，从 CommodityManager 类传递消息到 Adventurer 类"],
+    "3": ["CommodityManager", "Knapsack", "updateKnapsack"],
+    "4": ["Adventurer", "关联"],
+    "5": "addEquipment",
+    "6": ["10", "done==false&&trying<=10"],
+    "7": ["getPrice", "equipmentList", "Vector<Commodity>"]
+}

@@ -1,0 +1,400 @@
+@startuml
+
+/' diagram meta data start
+config=CallConfiguration;
+{
+  "rootMethod": "MainClass#main(String[])",
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showMethodParametersTypes": false,
+    "showMethodParametersNames": false,
+    "showMethodReturnType": false,
+    "showPackageLevels": 2,
+    "showCallOrder": false,
+    "edgeMode": "MethodsOnly", // TypesOnly, MethodsOnly, TypesAndMethods, MethodsAndDirectTypeUsage
+    "showDetailedClassStructure": false
+  },
+  "rootClass": "MainClass",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="LR"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1357106269 { 
+   	label=InputSolver
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_704992180 { 
+   	label=InputSolver
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   InputSolver1357106269XXXaddPlus1808118735[
+	label="+ addPlus()"
+	style=filled
+	fillcolor=white
+	tooltip="InputSolver
+
+null"
+	fontcolor=darkgreen
+];
+
+InputSolver1357106269XXXgetFunction3052374[
+	label="+ getFunction()"
+	style=filled
+	fillcolor=white
+	tooltip="InputSolver
+
+null"
+	fontcolor=darkgreen
+];
+
+InputSolver1357106269XXXisFunction3052374[
+	label="+ isFunction()"
+	style=filled
+	fillcolor=white
+	tooltip="InputSolver
+
+null"
+	fontcolor=darkgreen
+];
+
+InputSolver1357106269XXXremoveFunction1808118735[
+	label="+ removeFunction()"
+	style=filled
+	fillcolor=white
+	tooltip="InputSolver
+
+null"
+	fontcolor=darkgreen
+];
+
+InputSolver1357106269XXXremoveSpacesAndTabs1808118735[
+	label="+ removeSpacesAndTabs()"
+	style=filled
+	fillcolor=white
+	tooltip="InputSolver
+
+null"
+	fontcolor=darkgreen
+];
+
+InputSolver1357106269XXXreplaceConsecutiveSigns1808118735[
+	label="+ replaceConsecutiveSigns()"
+	style=filled
+	fillcolor=white
+	tooltip="InputSolver
+
+null"
+	fontcolor=darkgreen
+];
+
+InputSolver1357106269XXXsimplify1808118735[
+	label="+ simplify()"
+	style=filled
+	fillcolor=white
+	tooltip="InputSolver
+
+null"
+	fontcolor=darkgreen
+];
+} 
+} 
+
+subgraph cluster_1445582840 { 
+   	label=Function
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_678205138 { 
+   	label=Function
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Function1445582840XXXexpandFunction1029870905[
+	label="+ expandFunction()"
+	style=filled
+	fillcolor=white
+	tooltip="Function
+
+null"
+	fontcolor=darkgreen
+];
+} 
+} 
+
+subgraph cluster_1726840607 { 
+   	label=MainClass
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_724317968 { 
+   	label=MainClass
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   MainClass1726840607XXXmain1859653459[
+	label="+ main()"
+	style=filled
+	fillcolor=white
+	tooltip="MainClass
+
+null"
+	penwidth=4
+	fontcolor=darkgreen
+];
+} 
+} 
+
+subgraph cluster_1911543745 { 
+   	label=Parser
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1321971918 { 
+   	label=Parser
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Parser1911543745XXXparseExpr0[
+	label="+ parseExpr()"
+	style=filled
+	fillcolor=white
+	tooltip="Parser
+
+null"
+	fontcolor=darkgreen
+];
+
+Parser1911543745XXXparseFactor0[
+	label="+ parseFactor()"
+	style=filled
+	fillcolor=white
+	tooltip="Parser
+
+null"
+	fontcolor=darkgreen
+];
+
+Parser1911543745XXXparseTerm104431[
+	label="+ parseTerm()"
+	style=filled
+	fillcolor=white
+	tooltip="Parser
+
+null"
+	fontcolor=darkgreen
+];
+} 
+} 
+
+subgraph cluster_198012600 { 
+   	label=Expression
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_733363118 { 
+   	label=Expression
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Expression198012600XXXaddExpression198012600[
+	label="+ addExpression()"
+	style=filled
+	fillcolor=white
+	tooltip="Expression
+
+null"
+	fontcolor=darkgreen
+];
+
+Expression198012600XXXaddFactor2096686447[
+	label="+ addFactor()"
+	style=filled
+	fillcolor=white
+	tooltip="Expression
+
+null"
+	fontcolor=darkgreen
+];
+
+Expression198012600XXXclone0[
+	label="+ clone()"
+	style=filled
+	fillcolor=white
+	tooltip="Expression
+
+null"
+	fontcolor=darkgreen
+];
+
+Expression198012600XXXmerge0[
+	label="+ merge()"
+	style=filled
+	fillcolor=white
+	tooltip="Expression
+
+null"
+	fontcolor=darkgreen
+];
+} 
+} 
+
+subgraph cluster_2603148 { 
+   	label=Term
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_310267730 { 
+   	label=Term
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Term2603148XXXaddFactor2096686447[
+	label="+ addFactor()"
+	style=filled
+	fillcolor=white
+	tooltip="Term
+
+null"
+	fontcolor=darkgreen
+];
+} 
+} 
+
+subgraph cluster_73315052 { 
+   	label=Lexer
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_231902870 { 
+   	label=Lexer
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Lexer73315052XXXnextToken0[
+	label="+ nextToken()"
+	style=filled
+	fillcolor=white
+	tooltip="Lexer
+
+null"
+	fontcolor=darkgreen
+];
+
+Lexer73315052XXXpeek0[
+	label="+ peek()"
+	style=filled
+	fillcolor=white
+	tooltip="Lexer
+
+null"
+	fontcolor=darkgreen
+];
+} 
+} 
+
+'edges    
+Expression198012600XXXaddExpression198012600 -> Expression198012600XXXaddFactor2096686447;
+Expression198012600XXXaddExpression198012600 -> Expression198012600XXXclone0;
+Expression198012600XXXaddExpression198012600 -> Expression198012600XXXmerge0;
+InputSolver1357106269XXXremoveFunction1808118735 -> Function1445582840XXXexpandFunction1029870905;
+InputSolver1357106269XXXremoveFunction1808118735 -> InputSolver1357106269XXXgetFunction3052374;
+InputSolver1357106269XXXremoveFunction1808118735 -> InputSolver1357106269XXXisFunction3052374;
+InputSolver1357106269XXXsimplify1808118735 -> InputSolver1357106269XXXaddPlus1808118735;
+InputSolver1357106269XXXsimplify1808118735 -> InputSolver1357106269XXXremoveFunction1808118735;
+InputSolver1357106269XXXsimplify1808118735 -> InputSolver1357106269XXXremoveSpacesAndTabs1808118735;
+InputSolver1357106269XXXsimplify1808118735 -> InputSolver1357106269XXXreplaceConsecutiveSigns1808118735;
+MainClass1726840607XXXmain1859653459 -> InputSolver1357106269XXXsimplify1808118735;
+MainClass1726840607XXXmain1859653459 -> Parser1911543745XXXparseExpr0;
+Parser1911543745XXXparseExpr0 -> Expression198012600XXXaddExpression198012600;
+Parser1911543745XXXparseExpr0 -> Expression198012600XXXmerge0;
+Parser1911543745XXXparseExpr0 -> Lexer73315052XXXnextToken0;
+Parser1911543745XXXparseExpr0 -> Lexer73315052XXXpeek0;
+Parser1911543745XXXparseExpr0 -> Parser1911543745XXXparseTerm104431;
+Parser1911543745XXXparseTerm104431 -> Lexer73315052XXXnextToken0;
+Parser1911543745XXXparseTerm104431 -> Lexer73315052XXXpeek0;
+Parser1911543745XXXparseTerm104431 -> Parser1911543745XXXparseFactor0;
+Parser1911543745XXXparseTerm104431 -> Term2603148XXXaddFactor2096686447;
+    
+}
+@enduml
